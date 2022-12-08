@@ -16,12 +16,13 @@ import javax.servlet.http.HttpServletResponse;
 public class NoticeReg extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		request.setCharacterEncoding("UTF-8");
+		//request.setCharacterEncoding("UTF-8");
+		
+		
 		PrintWriter out = response.getWriter();
-		
-		
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
