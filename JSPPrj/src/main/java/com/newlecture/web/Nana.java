@@ -19,7 +19,7 @@ public class Nana extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-	
+
 		String cnt_ = request.getParameter("cnt");
 		
 		int cnt = 100;
@@ -30,5 +30,5 @@ public class Nana extends HttpServlet {
 			out.println((i+1)+":안녕 Servlet!! <br>");
 		}
 	}
-
+// check
 }
