@@ -13,6 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.newlecture.web.entity.Notice;
 @WebServlet("/notice/detail")
 public class NoticeDetailController extends HttpServlet{
 	@Override
@@ -34,19 +36,33 @@ public class NoticeDetailController extends HttpServlet{
 				
 				//model
 			String title =	rs.getString("TITLE");
-			Date regDate =	rs.getDate("REGDATE");
+			Date regdate =	rs.getDate("REGDATE");
 			String writerId =	rs.getString("WRITER_ID");
 			String hit =	rs.getString("HIT");
 			String files =	rs.getString("FILES");
 			String content =	rs.getString("CONTENT");
 			
+			//생성자 메게변수 순서 맞추기
+			Notice notice = new Notice(
+					id,
+					title,
+					regdate,
+					writerId,
+					hit,
+					files,
+					content
+					);
+			
+			request.setAttribute("n", notice);
+			
+			/*
 			request.setAttribute("title", title);
 			request.setAttribute("writerId", writerId);
-			request.setAttribute("regDate", regDate);
+			request.setAttribute("regdate", regdate);
 			request.setAttribute("hit", hit);
 			request.setAttribute("files", files);
 			request.setAttribute("content", content);
-
+*/
 			    rs.close();
 				st.close();
 				con.close();
