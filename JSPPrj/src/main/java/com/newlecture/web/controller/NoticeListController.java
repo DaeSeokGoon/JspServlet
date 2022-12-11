@@ -17,7 +17,6 @@ public class NoticeListController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//list?f=title&q=a
-		
 		String field_ = request.getParameter("f");
 		String query_ = request.getParameter("q");
 		String page_ = request.getParameter("p");
@@ -39,8 +38,13 @@ public class NoticeListController extends HttpServlet{
 		
 		NoticeService service = new NoticeService();
 		List<Notice> list = service.getNoticeList(field,query,page);
+		int count = service.getNoticeCount(field,query);
+		
+		
 		
 		request.setAttribute("list", list);
+		request.setAttribute("count", count);
+		
 		
 		request
 		.getRequestDispatcher("/WEB-INF/view/notice/list.jsp")
